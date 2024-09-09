@@ -9,18 +9,19 @@ export class TrpcRouter {
 
     appRouter = this.trpc.router({
         hello: this.trpc.procedure
-            .input(
-                z.object({
-                    name: z.string().optional(),
-                }),
-            )
-            .query(({ input }) => {
-                const { name } = input;
+            // .input(
+            //     z.object({
+            //         name: z.string().optional(),
+            //     }),
+            // )
+            .query(() => {
+                // const { name } = input;
                 return {
-                    greeting: `Hello ${name ? name : `Bilbo`}`,
+                    greeting: `Hello Mit`,
                 };
             }),
     });
+
 
     async applyMiddleware(app: INestApplication) {
         app.use(
