@@ -24,7 +24,7 @@
     "@nestjs/config": "^3.2.3",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
-    "@trpc/server": "^10.45.2",
+    "@trpc/server": "^11.0.0-rc.502",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
     "superjson": "^2.2.1",
