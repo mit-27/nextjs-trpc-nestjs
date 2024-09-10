@@ -1,28 +1,28 @@
 import { INestApplication, Injectable } from '@nestjs/common';
 import { z } from 'zod';
-import { TrpcService } from './trpc.service';
+import { TrpcService, createContext } from './trpc.service';
 import * as trpcExpress from '@trpc/server/adapters/express';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class TrpcRouter {
-    constructor(private readonly trpc: TrpcService,private prisma: PrismaService) { }
+    constructor(private readonly trpc: TrpcService, private prisma: PrismaService) { }
 
     appRouter = this.trpc.router({
-        hello: this.trpc.procedure
-            .query(() => {
+        hello: this.trpc.protectedProcedure
+            .query(({ ctx }) => {
                 // const { name } = input;
                 return {
-                    greeting: `Hello Mit`,
+                    greeting: `Hello Mit ${ctx.user}`,
                 };
             }),
-        getAllPosts: this.trpc.procedure
+        getAllPosts: this.trpc.publicProcedure
             .query(async () => {
                 const posts = await this.prisma.post.findMany();
                 return posts;
             }),
 
-        addPost: this.trpc.procedure
+        addPost: this.trpc.publicProcedure
             .input(z.object({
                 title: z.string(),
                 content: z.string(),
@@ -44,6 +44,7 @@ export class TrpcRouter {
             `/trpc`,
             trpcExpress.createExpressMiddleware({
                 router: this.appRouter,
+                createContext,
             }),
         );
     }

@@ -7,6 +7,7 @@ export default function Home() {
   const [content, setContent] = useState("");
 
   const { data: posts, refetch } = api.getAllPosts.useQuery();
+  const { data } = api.hello.useQuery();
   const addPostMutation = api.addPost.useMutation({
     onSuccess: () => {
       refetch();
@@ -42,6 +43,7 @@ export default function Home() {
         >
           Add Post
         </button>
+        <div>{data && data?.greeting}</div>
       </div>
       <div>
         <h2 className="text-xl font-bold mb-2">Posts:</h2>

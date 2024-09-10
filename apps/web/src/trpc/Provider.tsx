@@ -16,6 +16,10 @@ export default function Provider({ children }: { children: React.ReactNode }) {
                 httpBatchLink({
                     transformer,
                     url: `${process.env.NEXT_PUBLIC_SERVER_URL}/trpc`,
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer Mitsutha`,
+                    },
                 }),
             ],
         })
