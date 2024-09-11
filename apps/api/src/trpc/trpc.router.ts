@@ -2,7 +2,7 @@ import { INestApplication, Injectable } from '@nestjs/common';
 import { z } from 'zod';
 import { TrpcService, createContext } from './trpc.service';
 import * as trpcExpress from '@trpc/server/adapters/express';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from 'src/core/prisma/prisma.service';
 
 @Injectable()
 export class TrpcRouter {
@@ -13,7 +13,7 @@ export class TrpcRouter {
             .query(({ ctx }) => {
                 // const { name } = input;
                 return {
-                    greeting: `Hello Mit ${ctx.user}`,
+                    greeting: `Hello Mit ${ctx.user.email}`,
                 };
             }),
         getAllPosts: this.trpc.publicProcedure

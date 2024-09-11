@@ -2,13 +2,14 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TrpcModule } from './trpc/trpc.module';
-import { PrismaService } from './prisma/prisma.service';
+import { CoreSharedModule } from './core/module';
 
 @Module({
   imports: [
     TrpcModule,
+    CoreSharedModule
   ],
   controllers: [AppController],
-  providers: [AppService, PrismaService],
+  providers: [AppService],
 })
 export class AppModule { }
