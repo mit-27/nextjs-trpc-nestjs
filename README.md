@@ -1,6 +1,16 @@
 # 🚀 NextJS + NestJS + TRPC SaaS template
 
-## Setup and Running Instructions
+A comprehensive SaaS template featuring Next.js, NestJS, and tRPC for building scalable web applications with type-safe API communication, authentication, and containerization.
+
+## 🔑 Key Features
+
+- 🌐 Full-stack TypeScript development
+- 🔄 Seamless API integration with tRPC
+- 🗄️ Database management with Prisma ORM
+- 🔐 Authentication ready with NextAuth.js
+- 🐳 Containerized development environment
+- 📁 Monorepo structure for efficient code organization
+
 
 ## 🛠️ Tech Stack
 
@@ -31,7 +41,9 @@ This project utilizes a modern and powerful tech stack:
 
 This stack ensures a robust, scalable, and maintainable application with strong typing throughout the entire codebase and secure authentication.
 
-### 1. 🐳 Using Docker Compose
+## Setup and Running Instructions
+
+### 1. 🐳 Using Docker
 
 To set up and run the project using Docker Compose:
 
