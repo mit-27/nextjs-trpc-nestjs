@@ -1,7 +1,6 @@
 # 🚀 NextJS + NestJS + TRPC Project template
 
-## 🛠️ Setup and Running Instructions
-
+## Setup and Running Instructions
 
 ## 🛠️ Tech Stack
 
@@ -31,10 +30,6 @@ This project utilizes a modern and powerful tech stack:
 - **NextAuth.js**: 🔑 A complete authentication solution for Next.js applications.
 
 This stack ensures a robust, scalable, and maintainable application with strong typing throughout the entire codebase and secure authentication.
-
-
-
-
 
 ### 1. 🐳 Using Docker Compose
 
