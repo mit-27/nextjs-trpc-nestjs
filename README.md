@@ -2,6 +2,40 @@
 
 ## 🛠️ Setup and Running Instructions
 
+
+## 🛠️ Tech Stack
+
+This project utilizes a modern and powerful tech stack:
+
+### 🖥️ Frontend
+- **Next.js**: 🚀 A React framework for building server-side rendered and statically generated web applications.
+- **React**: ⚛️ A JavaScript library for building user interfaces.
+- **TypeScript**: 📘 A typed superset of JavaScript that compiles to plain JavaScript.
+
+### 🔧 Backend
+- **NestJS**: 🐈 A progressive Node.js framework for building efficient, reliable and scalable server-side applications.
+- **tRPC**: 🔗 End-to-end typesafe APIs made easy.
+- **Prisma**: 🗄️ Next-generation ORM for Node.js and TypeScript.
+
+### 🗃️ Database
+- **PostgreSQL**: 🐘 A powerful, open source object-relational database system.
+
+### 🚢 DevOps
+- **Docker**: 🐳 A platform for developing, shipping, and running applications in containers.
+- **Docker Compose**: 🐙 A tool for defining and running multi-container Docker applications.
+
+### 📦 Package Management
+- **pnpm**: 🚄 Fast, disk space efficient package manager.
+
+### 🔐 Authentication
+- **NextAuth.js**: 🔑 A complete authentication solution for Next.js applications.
+
+This stack ensures a robust, scalable, and maintainable application with strong typing throughout the entire codebase and secure authentication.
+
+
+
+
+
 ### 1. 🐳 Using Docker Compose
 
 To set up and run the project using Docker Compose:
