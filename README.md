@@ -70,5 +70,5 @@ Make sure your environment variables are properly configured to connect to the P
 ### Credits & Inspiration
 
 - [https://github.com/tomwray13/nestjs-nextjs-trpc](https://github.com/tomwray13/nestjs-nextjs-trpc)
-- [[NestJS](https://github.com/jaequery/ult)](https://github.com/jaequery/ult)
+- [NestJS](https://github.com/jaequery/ult)
 - [Panora](https://github.com/panoratech/Panora)
