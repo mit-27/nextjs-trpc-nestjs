@@ -1,4 +1,4 @@
-# 🚀 NextJS + NestJS + TRPC Project template
+# 🚀 NextJS + NestJS + TRPC SaaS template
 
 ## Setup and Running Instructions
 
