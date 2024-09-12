@@ -1,81 +1,74 @@
-# Turborepo starter
+# 🚀 NextJS + NestJS + TRPC Project template
 
-This is an official starter Turborepo.
+## 🛠️ Setup and Running Instructions
 
-## Using this example
+### 1. 🐳 Using Docker Compose
 
-Run the following command:
+To set up and run the project using Docker Compose:
 
-```sh
-npx create-turbo@latest
-```
+1. Ensure you have Docker and Docker Compose installed on your system.
+2. Open a terminal and navigate to the project's root directory.
+3. Copy the example environment files and add appropriate environment variables:
 
-## What's inside?
+   ```bash
+   cp .env.example .env
+   ```
 
-This Turborepo includes the following packages/apps:
+   Edit both `.env` files and add the necessary environment variables.
 
-### Apps and Packages
+4. Run the following command:
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+   ```bash
+   docker-compose -f docker-compose.dev.yml up
+   ```
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+This command will build and start all the necessary containers defined in the `docker-compose.dev.yml` file. It includes the database, API, and web application services. Docker Compose will handle the networking and environment setup automatically.
 
-### Utilities
+## 2. 📦 Using pnpm (Local Development)
 
-This Turborepo has some additional tools already setup for you:
+To set up and run the project locally using pnpm:
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+1. Make sure you have Node.js (version 18 or higher) and pnpm installed on your system.
+2. Open a terminal and navigate to the project's root directory.
+3. Copy the example environment files and add appropriate environment variables:
 
-### Build
+   ```bash
+   cp apps/web/.env.example apps/web/.env.local
+   cp apps/api/.env.example apps/api/.env
+   ```
 
-To build all apps and packages, run the following command:
+   Edit both `.env` files and add the necessary environment variables.
 
-```
-cd my-turborepo
-pnpm build
-```
+4. Install the dependencies by running:
 
-### Develop
+   ```bash
+   pnpm install
+   ```
 
-To develop all apps and packages, run the following command:
+5. Start the PostgreSQL database using Docker Compose:
 
-```
-cd my-turborepo
-pnpm dev
-```
+   ```bash
+   docker-compose -f docker-compose.postgres.yml up -d
+   ```
 
-### Remote Caching
+6. Push the database schema changes using Prisma:
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+   ```bash
+   pnpm run db:push
+   ```
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+7. Start the development servers by running:
 
-```
-cd my-turborepo
-npx turbo login
-```
+   ```bash
+   pnpm run dev
+   ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+This command will concurrently start both the Next.js web application (on port 8090) and the NestJS API server. It uses Turbo to manage the monorepo workspace and run the development scripts for both the web and API projects simultaneously.
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+Make sure your environment variables are properly configured to connect to the PostgreSQL database started by Docker Compose.
 
-```
-npx turbo link
-```
+### Credits & Inspiration
 
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+- [https://github.com/tomwray13/nestjs-nextjs-trpc](https://github.com/tomwray13/nestjs-nextjs-trpc)
+- [[NestJS](https://github.com/jaequery/ult)](https://github.com/jaequery/ult)
+- [Panora](https://github.com/panoratech/Panora)
