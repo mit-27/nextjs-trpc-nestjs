@@ -3,11 +3,11 @@ import { initTRPC, TRPCError } from '@trpc/server';
 import { transformer } from './transformer';
 import * as trpcExpress from '@trpc/server/adapters/express';
 import { AuthService } from 'src/core/auth/auth.service';
-import { User } from '@prisma/client';
+import { users } from '@prisma/client';
 // import superjson from "superjson";
 
 export interface TrpcContext extends trpcExpress.CreateExpressContextOptions {
-  user?: User;
+  user?: users;
 }
 
 export const createContext = async ({

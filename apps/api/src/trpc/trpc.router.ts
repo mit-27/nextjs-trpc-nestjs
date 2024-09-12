@@ -3,6 +3,8 @@ import { z } from 'zod';
 import { TrpcService, createContext } from './trpc.service';
 import * as trpcExpress from '@trpc/server/adapters/express';
 import { PrismaService } from 'src/core/prisma/prisma.service';
+import { v4 as uuidv4 } from 'uuid';
+
 
 @Injectable()
 export class TrpcRouter {
@@ -18,7 +20,7 @@ export class TrpcRouter {
             }),
         getAllPosts: this.trpc.publicProcedure
             .query(async () => {
-                const posts = await this.prisma.post.findMany();
+                const posts = await this.prisma.posts.findMany();
                 return posts;
             }),
 
@@ -28,8 +30,9 @@ export class TrpcRouter {
                 content: z.string(),
             }))
             .mutation(async ({ input }) => {
-                const newPost = await this.prisma.post.create({
+                const newPost = await this.prisma.posts.create({
                     data: {
+                        id: uuidv4(),
                         title: input.title,
                         content: input.content,
                     },

@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { OAuth2Client, TokenPayload } from 'google-auth-library';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from '../prisma/prisma.service';
-import { User } from '@prisma/client';
+import { users } from '@prisma/client';
 
 @Injectable()
 export class AuthService {
@@ -10,7 +10,7 @@ export class AuthService {
   constructor(private readonly prismaService: PrismaService) { }
 
 
-  async login(token: string) : Promise<User | null> {
+  async login(token: string) : Promise<users | null> {
     try{
       const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
       const currentToken = token.split(' ')[1];
@@ -31,7 +31,7 @@ export class AuthService {
       }
 
       // Check if user exists in database
-      let user = await this.prismaService.user.findUnique({
+      let user = await this.prismaService.users.findUnique({
         where: {
           email: payload.email,
         },
@@ -39,13 +39,13 @@ export class AuthService {
 
       if (!user) {
         // Create user in database
-        user = await this.prismaService.user.create({
+        user = await this.prismaService.users.create({
           data: {
             id: payload.sub,
             email: payload.email!,
             name: payload.name,
             image: payload.picture,
-            emailVerified: payload.email_verified,
+            emailverified: payload.email_verified,
           },
         });
       }
