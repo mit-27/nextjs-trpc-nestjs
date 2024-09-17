@@ -108,7 +108,7 @@ This command will concurrently start both the Next.js web application (on port 8
 
 Make sure your environment variables are properly configured to connect to the PostgreSQL database started by Docker Compose.
 
-### Credits & Inspiration
+### Credits
 
 - [https://github.com/tomwray13/nestjs-nextjs-trpc](https://github.com/tomwray13/nestjs-nextjs-trpc)
 - [NestJS](https://github.com/jaequery/ult)
